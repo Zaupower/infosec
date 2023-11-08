@@ -1,4 +1,26 @@
 Basic Commands
+
 	1. pwd
+
 	2. ls
-	3. mkdir -p ~/Documents/PCS-PL1 mkdir ~/Documents/PCS-PL1-Temp
+
+	3. mkdir ~/Documents/{PCS-PL1,CS-PL1-Temp}
+
+	4. echo "muitas linhas" > ~/Documents/PCS-PL1-Temp/file1.txt
+           echo "muitas linhas" > ~/Documents/PCS-PL1-Temp/file2.txt
+	   echo "muitas linhas" > ~/Documents/PCS-PL1-Temp/file3.txt
+
+	5. cat ~/Documents/PCS-PL1-Temp/file1.txt
+	   cat ~/Documents/PCS-PL1-Temp/file2.txt
+	   cat ~/Documents/PCS-PL1-Temp/file3.txt
+
+	6. cp ~/Documents/PCS-PL1-Temp/*  ~/Documents/PCS-PL1/
+
+	7. rm -r ~/Documents/PCS-PL1-Temp
+
+	8. mv ~/Documents/PCS-PL1-/file3.txt ~/Documents/PCS-PL1/file4.txt
+
+	9. du -ah ~/Documents/PCS-PL1     (-a all; h human readable)
+
+
+
