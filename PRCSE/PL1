@@ -1,2 +1,4 @@
 Basic Commands
 	1. pwd
+	2. ls
+	3. mkdir -p ~/Documents/PCS-PL1 mkdir ~/Documents/PCS-PL1-Temp
