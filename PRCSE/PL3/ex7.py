@@ -31,6 +31,8 @@ def password_check(passwd):
         print('Password should have at least one of the symbols $@#')
         val = False
     if val:
-        print('Valid Password')
+        return True
     
-password_check(str(input('Test a password\n')))
+
+#password = str(input('Test a password\n'))
+#password_check(password)
