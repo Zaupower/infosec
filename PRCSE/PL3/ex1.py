@@ -5,7 +5,7 @@ of an integer.
     a. Hint: input() – built-in python function.
 '''
 import math
-number = int(input('Insert a number\n'))
+number = float(input('Insert a number\n'))
 
 sqrt_number = math.sqrt(number)
 if sqrt_number.is_integer():
