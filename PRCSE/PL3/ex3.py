@@ -7,8 +7,15 @@ racecar.
 word = str(input('Write a word to check if it is palindrome\n'))
 
 is_palindrome = word == word[::-1]
-if is_palindrome:
+word_len = len(word)
+if word_len < 2:
     print('Is palindrome')
 else:
-    print('Is not palindrome')
+    word_half_size = int(word_len/2)
+    is_palidrome = True
+    for i in range(word_half_size):
+        if word[i] != word[word_half_size+i]:
+            is_palidrome = False
+            break
+    print(f'Is palindrome: {is_palidrome}')
 
