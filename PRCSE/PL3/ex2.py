@@ -5,7 +5,7 @@ M a r i l y n space o e
 2 1 2 1 1 1 2   1   2 1
 '''
 
-name_read = str(input())
+name_read = str(input("Input a string to measure its char frequency"))
 
 frequency = {}
  
