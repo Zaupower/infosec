@@ -1,0 +1,35 @@
+{
+    "IT": [
+        {
+            "Name": "Marcelo",
+            "Role": "InfoSec",
+            "Salary": "40000"
+        }
+    ],
+    "Finance": [
+        {
+            "Name": "Antonio",
+            "Role": "Accountant",
+            "Salary": "3000"
+        }
+    ],
+    "RD": [
+        {
+            "Name": "Joao",
+            "Role": "Engineer",
+            "Salary": "30000"
+        }
+    ],
+    "QA": [
+        {
+            "Name": "Jose",
+            "Role": "QA Engineer",
+            "Salary": "40000"
+        },
+        {
+            "Name": "Jose",
+            "Role": "QA Engineer",
+            "Salary": "40000"
+        }
+    ]
+}
