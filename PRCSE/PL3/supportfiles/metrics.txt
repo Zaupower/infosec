@@ -1,0 +1,27 @@
+Company Metrics:
+Number of Departments: 4
+Departments with Lowest Early Wages: Finance
+Departments with Highest Early Wages: QA
+Total Wage Expenses: 2142000.0
+
+Department Metrics:
+Department: IT
+Number of Employees: 1
+Average Salary: 40000.0
+Early Expenses: 560000.0
+
+Department: Finance
+Number of Employees: 1
+Average Salary: 3000.0
+Early Expenses: 42000.0
+
+Department: RD
+Number of Employees: 1
+Average Salary: 30000.0
+Early Expenses: 420000.0
+
+Department: QA
+Number of Employees: 2
+Average Salary: 40000.0
+Early Expenses: 1120000.0
+
