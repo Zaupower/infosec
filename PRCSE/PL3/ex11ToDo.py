@@ -27,10 +27,10 @@ def fetch_weather_data(location_url):
 
     # Extract the text content of the "Detailed Forecast" section
     detailed_forecast_text = detailed_forecast.get_text(strip=True)
-
+    print(f'det: {detailed_forecast_text}')
     # Split the detailed forecast into sentences
     forecast_sentences = [sentence.strip() for sentence in detailed_forecast_text.split('.') if sentence]
-
+    #print(f'Content: {forecast_sentences}')
     # Extract relevant information for Today and Tonight
     today_forecast = forecast_sentences[0]
     tonight_forecast = forecast_sentences[1]
@@ -64,6 +64,7 @@ def get_weather_forecast(json_file, day):
 
     # Retrieve the weather forecast for the given day
     forecast_key = f'forecast_{day}'
+    
     weather_forecast = data.get(forecast_key, 'No information available for the specified day.')
 
     return weather_forecast
