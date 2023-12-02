@@ -57,17 +57,6 @@ def get_value_from_json(json_file_path, key):
         print(f"File not found: {json_file_path}")
         return None
 
-def get_weather_forecast(json_file, day):
-    with open(json_file, 'r') as json_file:
-        data = json.load(json_file)
-
-    # Retrieve the weather forecast for the given day
-    forecast_key = f'forecast_{day}'
-    
-    weather_forecast = data.get(forecast_key, 'No information available for the specified day.')
-
-    return weather_forecast
-
 if __name__ == "__main__":
     location_url = 'https://forecast.weather.gov/MapClick.php?lat=37.7772&lon=-122.4168'
     output_file = 'weather_data.json'
