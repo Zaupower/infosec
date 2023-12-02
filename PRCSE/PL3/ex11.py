@@ -30,10 +30,6 @@ def fetch_weather_data(location_url):
         forecast_label = row.find("div", {"class": "col-sm-2 forecast-label"})
         forecast_text = row.find("div", {"class": "col-sm-10 forecast-text"})
         forecast_dictionary[forecast_label.get_text(strip=True)] = forecast_text.get_text(strip=True)
-    print('Dic: ', forecast_dictionary)
-    # Get whether for the times
-
-
     return forecast_dictionary
 
 def save_to_json(data, output_file):
@@ -62,11 +58,12 @@ if __name__ == "__main__":
     output_file = 'weather_data.json'
 
     weather_data = fetch_weather_data(location_url)
+    keys_list = list(weather_data.keys())
     save_to_json(weather_data, output_file)
 
     json_file = 'weather_data.json'
-    user_input_day = input('Enter the day for the weather forecast (e.g., "Today", "Tonight", "Wednesday"): ')
+    user_input_day = input(f'Enter the day for the weather forecast (e.g., {keys_list[0]}, {keys_list[1]}, {keys_list[2]}): ')
 
     weather_forecast = get_value_from_json(json_file, user_input_day)
-    print(f'Weather Forecast for {user_input_day}: {weather_forecast}')
+    print(f'{user_input_day}: {weather_forecast}')
 
