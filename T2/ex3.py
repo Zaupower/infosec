@@ -30,7 +30,7 @@ else:
     decoded_message = decode_lsb(sys.argv[1])
     if decoded_message:
         print("Message found: " + decoded_message)
-        tries = int(input("Please input the number of tries to bruteforce with ceaser cypher\n"))
+        tries = int(input(f"Please input the number of tries to bruteforce with ceaser cypher, maximum possible number of tries 26\n"))
         bruteforce_ceaser(decoded_message, tries)
     else:
         print("No message found in image")
