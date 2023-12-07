@@ -7,13 +7,6 @@ def decode_lsb(image_path):
     clear_message = lsb.reveal(image_path)
     return clear_message
 
-# Example usage
-output_image_path = "PRCSE-C2.png"
-
-# Decode message from encoded image
-decoded_message = decode_lsb(output_image_path)
-
-
 def caesar_cipher(text, shift):
     result = ""
     for char in text:
@@ -26,17 +19,21 @@ def caesar_cipher(text, shift):
 
 def bruteforce_ceaser(text, number_of_tries):
     for i in range(number_of_tries):
-        print(str(i))
-        print( caesar_cipher(text, i))
+        print(str(i) + " "+ caesar_cipher(text, i))
 
 # Decode message from encoded image
-decoded_message = decode_lsb(output_image_path)
-if decoded_message:
-    print("Message found: " + decoded_message)
-    tries = int(input("Please input the number of tries to bruteforce with ceaser cypher\n"))
-    bruteforce_ceaser(decoded_message, tries)
+
+# Check command number of command line arguments
+if len(sys.argv) != 2:
+    print(f"Usage: {sys.argv[0]} <path>")
 else:
-    print("No message found in image")
+    decoded_message = decode_lsb(sys.argv[1])
+    if decoded_message:
+        print("Message found: " + decoded_message)
+        tries = int(input("Please input the number of tries to bruteforce with ceaser cypher\n"))
+        bruteforce_ceaser(decoded_message, tries)
+    else:
+        print("No message found in image")
 
 
 
