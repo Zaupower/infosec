@@ -33,8 +33,12 @@ def decrypt(dataFile, privateKeyFile, extension):
 
     # read data from file
     with open(dataFile, 'rb') as f:
-        # read the session key
-        encryptedSessionKey, nonce, tag, ciphertext = [ f.read(x) for x in (key.size_in_bytes(), 16, 16, -1) ]
+        # Read the session key
+        key_size = key.size_in_bytes()
+        encryptedSessionKey = f.read(key_size)
+        nonce = f.read(16)
+        tag = f.read(16)
+        ciphertext = f.read()
 
     # decrypt the session key
     cipher = PKCS1_OAEP.new(key)
