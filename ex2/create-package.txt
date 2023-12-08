@@ -27,3 +27,5 @@ cd ransomwar-0.0.1/usr/bin/
 sudo chmod +x ransomware 
 
 dpkg-deb --build --root-owner-group ransomwar-0.0.1/
+sudo apt install ./ransomwar-0.0.1.deb 
+$ ransomware
