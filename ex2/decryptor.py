@@ -25,7 +25,7 @@ def decrypt(dataFile, privateKeyFile, extension):
         privateKey = f.read()
         # create private key object
         key = RSA.import_key(privateKey)
-        
+
     # read data from file
     with open(dataFile, 'rb') as f:
         # Read the session key
@@ -51,7 +51,7 @@ def decrypt(dataFile, privateKeyFile, extension):
         f.write(data)
     print('Decrypted file saved to ' + decryptedFile)
 
-directory = '/home/marcelo/Documents/infosec/ex2/TestRamsware' 
+directory = '/home/marcelo/Documents/infosec/ex2/TestRansomware' 
 
 dir = input('put your directory (default is "TestRamsware" ):')
 if dir:

