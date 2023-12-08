@@ -19,7 +19,7 @@ def scanRecurse(baseDir):
             yield from scanRecurse(entry.path)
 
 
-def decrypt(dataFile, privateKeyFile):
+def decrypt(dataFile, privateKeyFile, extension):
     '''
     use EAX mode to allow detection of unauthorized modifications
     '''
@@ -48,16 +48,17 @@ def decrypt(dataFile, privateKeyFile):
     dataFile = str(dataFile)
     fileName= dataFile.split(extension)[0]
     fileExtension = '.decrypted' # mark the file was decrypted
-    decryptedFile = fileName + fileExtension
+    #decryptedFile = fileName + fileExtension
+    decryptedFile = fileName + "-DECRIPTED-" + extension
     with open(decryptedFile, 'wb') as f:
         f.write(data)
 
     print('Decrypted file saved to ' + decryptedFile)
 
-directory = './' # CHANGE THIS
+directory = '/home/marcelo/Documents/infosec/ex2/ex2V2/TestRamsware' # CHANGE THIS
 
 # BONUS for you
-dir = input('put your directory (default is "./" ):')
+dir = input('put your directory (default is "TestRamsware" ):')
 if dir:
   directory = dir
 
@@ -69,6 +70,6 @@ for item in scanRecurse(directory):
     filePath = Path(item)
     fileType = filePath.suffix.lower()
     # run the decryptor just if the extension is .l0v3sh3
-    if fileType in includeExtension:
+    #if fileType in includeExtension:
       #print(Path(filePath)) # testing the scanning file
-      decrypt(filePath, privateKeyFile)
+    decrypt(filePath, privateKeyFile, fileType)
