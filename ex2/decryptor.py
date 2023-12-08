@@ -55,7 +55,7 @@ def decrypt(dataFile, privateKeyFile, extension):
 
     print('Decrypted file saved to ' + decryptedFile)
 
-directory = '/home/marcelo/Documents/infosec/ex2/ex2V2/TestRamsware' # CHANGE THIS
+directory = '/home/marcelo/Documents/infosec/ex2/TestRamsware' # CHANGE THIS
 
 # BONUS for you
 dir = input('put your directory (default is "TestRamsware" ):')
