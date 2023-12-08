@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Ransomware
+Path=/usr/bin
+Exec=ransomware
+Icon=
+Terminal=false
+Categories=Languages;Python;
