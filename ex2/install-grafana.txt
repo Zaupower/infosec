@@ -1,0 +1,18 @@
+install docker follow: https://docs.docker.com/engine/install/ubuntu/
+install grafana follow: https://docs.influxdata.com/influxdb/v2/install/?t=Docker
+run influxdb in docker: docker run --name influxdb -p 8086:8086 influxdb:2.7.4
+add persisstance dir
+mkdir Docker/influxdb-docker-data-volume && cd $_
+inside the previous dir, run:
+sudo docker run \
+    --name influxdb \
+    -p 8086:8086 \
+    --volume $PWD:/var/lib/influxdb2 \
+    influxdb:2.7.4
+
+influxdb conf: 
+username: marcelo
+password: marcelomarcelo
+organization:webscrapping
+bucket name:webscrapping
+token: p_WiwHSFIOAI9U461JolHwMXfEDRzwbYOamZ3rOPnqGy0AhXFxZIeU8I5vSxQB1iZRBQLrS9eRiMdh8QuuPfPQ==
