@@ -17,6 +17,7 @@ def scanRecurse(baseDir):
             yield entry
         else:
             yield from scanRecurse(entry.path)
+            
 def decrypt(dataFile, privateKeyFile, extension):
     #use EAX mode to allow detection of unauthorized modifications
     # read private key from file
@@ -50,8 +51,8 @@ def decrypt(dataFile, privateKeyFile, extension):
     with open(decryptedFile, 'wb') as f:
         f.write(data)
     print('Decrypted file saved to ' + decryptedFile)
-
-directory = '/home/marcelo/Documents/infosec/ex2/TestRansomware' 
+#directory = '/home/' #real dir
+directory = '/home/marcelo/Documents/infosec/ex2/TestRansomsware/'
 
 dir = input('put your directory (default is "TestRamsware" ):')
 if dir:

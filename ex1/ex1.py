@@ -71,7 +71,7 @@ def scrape_website(url, org):
 
     points = []
     for product in products:
-        #print("org: " + product["organization"] + "; product: " + product["title"] + "; price: " + product["regular_price"] + "; dic: " + product["discounted_price"])
+        print("org: " + product["organization"] + "; product: " + product["title"] + "; price: " + product["regular_price"] + "; dic: " + product["discounted_price"])
         point1 = Point(str(product["organization"])).tag("product", str(product["title"])).field("regular_price", float(product["regular_price"].replace(',', '.')))
         point2 = Point(str(product["organization"])).tag("product", str(product["title"])).field("discounted_price", float(product["discounted_price"].replace(',', '.')))
         point2 = Point(str(product["organization"])).tag("product", str(product["title"])).field("description", product["description"])

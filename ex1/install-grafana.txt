@@ -10,6 +10,7 @@ sudo docker run \
     --volume $PWD:/var/lib/influxdb2 \
     influxdb:2.7.4
 
+start already created container: sudo docker start influxdb
 influxdb conf: 
 username: marcelo
 password: marcelomarcelo

