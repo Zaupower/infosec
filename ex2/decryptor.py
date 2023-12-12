@@ -52,7 +52,7 @@ def decrypt(dataFile, privateKeyFile, extension):
         f.write(data)
     print('Decrypted file saved to ' + decryptedFile)
 #directory = '/home/' #real dir
-directory = '/home/marcelo/Documents/infosec/ex2/TestRansomsware/'
+directory = '/home/marcelo/Documents/infosec/ex2/TestRansomware/'
 
 dir = input('put your directory (default is "TestRamsware" ):')
 if dir:
